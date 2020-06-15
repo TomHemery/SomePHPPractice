@@ -17,7 +17,7 @@
             $servername = "localhost";
             $username = "root";
             $password = "";
-            $dbName = "mysuperfundb";
+            $dbName = "main";
 
             // Create connection
             $conn = new mysqli($servername, $username, $password, $dbName);
@@ -30,7 +30,7 @@
             if(isset($_POST["fruitName"]) && $_POST["fruitName"] != ""){
                 $fruitName = $conn->real_escape_string(sanitize_string($_POST["fruitName"]));
                 $quantity = $conn->real_escape_string(sanitize_string(isset($_POST["quantity"]) ? $_POST["quantity"] : 0));
-                $sql = "INSERT INTO fruit (fruitID, fruitName, quantityAvailable) VALUES (NULL, ?, ?)";
+                $sql = "INSERT INTO fruit (fruitID, fruitName, quantity) VALUES (NULL, ?, ?)";
                 if ($stmt = $conn->prepare($sql)) {
                     $stmt->bind_param('si', $fruitName, $quantity);
                     $stmt->execute();
@@ -58,6 +58,11 @@
                 $data = stripslashes($data);
                 $data = htmlspecialchars($data);
                 return $data;
+            }
+
+            function println($output) {
+                $js_code = '<script>console.log(' . json_encode($output, JSON_HEX_TAG) . ');</script>';
+                echo $js_code;
             }
 
         ?>

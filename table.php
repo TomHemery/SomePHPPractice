@@ -27,7 +27,7 @@
                 echo "<tr>";
                 foreach($row as $index => $entry){
                     if($index != $this->keyIndex)
-                        echo "<td>" . $entry . "<td>";
+                        echo "<td>" . $entry . "</td>";
                 }
                 echo "<td><button type='submit' name='deleteID' value = '". $row[$this->keyIndex] ."'>delete</button></td>";
                 $this->echo_random_image();
