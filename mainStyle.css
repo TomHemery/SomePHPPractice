@@ -1,0 +1,18 @@
+h1{
+    font-family: fantasy;
+    color: white;
+}
+body{
+    color: white;
+}
+
+form{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+table, th, td {
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid gray;
+}
+table{
+    border-collapse: collapse;
+}
